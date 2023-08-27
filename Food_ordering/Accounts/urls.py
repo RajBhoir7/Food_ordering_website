@@ -18,7 +18,10 @@ from django.contrib import admin
 from django.urls import path
 from . import views
 
+
+#Accounts App
 urlpatterns = [
-    path('Register/',views.User_Register,name='Register'),
+    path('Register/',views.User_Register.as_view(),name='Register'),
+    path('login/',views.User_Login.as_view(),name="User_Login"),
     path('admin/', admin.site.urls),
 ]

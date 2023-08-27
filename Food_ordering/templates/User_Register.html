@@ -1,8 +1,57 @@
-
 {% extends 'base.html' %}
-{% block title %}Register{% endblock title %}
+{% block title %}Sign In{% endblock title %}
 
 {% block body %}
-<h1>Register Page</h1>
+
+
+<!-- Signup From -->
+
+<div class="container card p-4 col-4 mt-5 shadow-lg">
+    
+        <form action="#">
+            <h2>Signup</h2>
+
+            <div class="input_box">
+                <input type="text" placeholder="Enter your Name" required />
+                <i class="uil uil-envelope-alt email"></i>
+            </div>
+
+            <div class="input_box">
+                <input type="text" placeholder="Enter your Surname" required />
+                <i class="uil uil-envelope-alt email"></i>
+            </div>
+
+            <div class="input_box">
+                <input type="email" placeholder="Enter your Email" required />
+                <i class="uil uil-envelope-alt email"></i>
+            </div>
+            <div class="input_box">
+                <input type="text" placeholder="Enter your Contact Number" required />
+                <i class="uil uil-envelope-alt email"></i>
+            </div>
+
+            
+            <!--<div class="input_box">
+                <input type="password" placeholder="Create password" required />
+                <i class="uil uil-lock password"></i>
+                <i class="uil uil-eye-slash pw_hide"></i>
+            </div>-->
+
+            <div class="input_box">
+                <input type="password" placeholder="Enter password" required />
+                <i class="uil uil-lock password"></i>
+                <i class="uil uil-eye-slash pw_hide"></i>
+            </div>
+
+            <div class="input_box">
+                <button class="btn btn-success">Signup Now</button>
+            </div>
+            <div class="login_signup">Already have an account? <a href="{% url 'User_Login' %}" id="login">Login</a>
+            </div>
+        </form>
+    
+</div>
+
+
 
 {% endblock body %}
