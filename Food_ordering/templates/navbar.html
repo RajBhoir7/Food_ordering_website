@@ -3,28 +3,38 @@
 <div>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#"><img src="{% static 'img/Logo.jpg' %}" alt="" style="height: 50px; width: 50px;"></a>
+          <a class="navbar-brand" href="#"><img src="{% static 'img/Logo1.jpg' %}" alt="" style="height: 35px"></a>
+          
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
+          <h4 class="mx-3 p-0" style="color:darkgreen;">OrderFood</h4>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             
             <form class="d-flex" role="search">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Search</button>
+              <input class="form-control me-2" type="search" placeholder="Search Food" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">search</button>
             </form>
           </div>
-
+          {% if user.is_authenticated %}
+          <ul class="navbar-nav me-auto ">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="{% url 'User_Logout' %}">Logout</a>
+            </li>
+          </ul>
+          {% else %}
           <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="{% url 'User_Login' %}">Login</a>
             </li>
           </ul>
+          
           <ul class="navbar-nav me-auto mb-2 mb-lg-0 mx-1">
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="{% url 'Register' %}">Sign Up</a>
             </li>
           </ul>
+          {% endif %}
         </div>
         
       </nav>

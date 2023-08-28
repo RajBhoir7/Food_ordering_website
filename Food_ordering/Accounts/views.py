@@ -2,7 +2,7 @@ from django.shortcuts import render,redirect
 from django.contrib import messages
 from django.views import View
 from django.contrib.auth.models import User
-from django.contrib.auth import login,authenticate
+from django.contrib.auth import login,authenticate,logout
 # Create your views here.
 
 
@@ -51,20 +51,13 @@ class User_Login(View):
             login(request,user)
             return redirect('home')
         return render(request,'Login_page.html')
-
-
         
 
-
-
+class User_logout(View):
         
+        def get(self,request):
+            logout(request)        
+            return redirect('User_Login')
 
-
-
-
-
-
-
-        return render(request,'Login_page.html')
         
     
