@@ -11,3 +11,5 @@ class User_Register(View):
 class User_Login(View):
     def get(self,request):
         return render(request,'Login_page.html')
+    def post(self,request):
+        pass
