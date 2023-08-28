@@ -1,6 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
+from django.contrib import messages
 from django.views import View
 from django.contrib.auth.models import User
+from django.contrib.auth import login,authenticate
 # Create your views here.
 
 
@@ -31,4 +33,38 @@ class User_Register(View):
 class User_Login(View):
     def get(self,request):
         return render(request,'Login_page.html')
+    def post(self,request):
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+
+        user = authenticate(username=username,password=password)
+
+        if not User.objects.filter(username=username).exists():
+            messages.info(request,f'UserName Not Exits')
+            return redirect('User_Login')
+
+        elif user is None:
+            messages.info(request,f'Invalid Password Or UserName')
+            return redirect('User_Login')
+            
+        else:
+            login(request,user)
+            return redirect('home')
+        return render(request,'Login_page.html')
+
+
+        
+
+
+
+        
+
+
+
+
+
+
+
+        return render(request,'Login_page.html')
+        
     
