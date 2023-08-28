@@ -1,9 +1,74 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block title %}Foodie{% endblock title %}
 
 {% block body %}
 {% include 'carousel.html' %}
 
-{% endblock body %}
+<div class="container">
+    <div class="mt-3" style="margin-left: 20px;">
+        <h3 style="font-family: 'Times New Roman', Times, serif;"><b>What's on your mind?</b></h3>
+    </div>
+    <div class="row">
 
+        <div height="180" width="144" class="col"><img class="sc-dcJsrY kMlaev"
+                src="{% static 'img\Pizza.png' %}"
+                width="144" height="180" alt="restaurants curated for pizza"></div>
+        <div height="180" width="144" class="col"><img class="sc-dcJsrY kMlaev"
+                src="{% static 'img\Chinese.png' %}"
+                width="144" height="180" alt="restaurant curated for chinese"></div>
+
+
+        <div height="180" width="144" class="col"><img class="sc-dcJsrY kMlaev"
+                src="{% static 'img\North_Indian_4.png' %}" width="144" height="180"
+                alt="restaurants curated for north indian"></div>
+
+        <div height="180" width="144" class="col"><img class="sc-dcJsrY kMlaev"
+                src="{% static 'img\Pav_Bhaji.png' %}"
+                width="144" height="180" alt="restaurants curated for pav Pav_Bhaji"></div>
+        <div height="180" width="144" class="col"><img class="sc-dcJsrY kMlaev"
+                src="{% static 'img\Chole_Bature.png' %}"
+                width="144" height="180" alt="restaurants curated for biryani"></div>
+        <div height="180" width="144" class="col"><img class="sc-dcJsrY kMlaev"
+                src="{% static 'img\Dosa.png' %}"
+                width="144" height="180" alt="restaurant curated for cakes"></div>
+        <div height="180" width="144" class="col"><img class="sc-dcJsrY kMlaev"
+                src="{% static 'img\burger.png' %}"
+                width="144" height="180" alt="restaurants curated for icecream"></div>
+        <!--
+                    <div height="180" width="144" class="col"><img class="sc-dcJsrY kMlaev"
+                            src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/v1674029858/PC_Creative%20refresh/3D_bau/banners_new/Pure_Veg.png"
+                            width="144" height="180" alt="restaurants curated for veg"></div>
+                    <div height="180" width="144" class="col"><img class="sc-dcJsrY kMlaev"
+                            src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/v1675667626/PC_Creative%20refresh/South_Indian_4.png"
+                            width="144" height="180" alt="restaurants curated for south indian"></div>
+                    <div height="180" width="144" class="col"><img class="sc-dcJsrY kMlaev"
+                            src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/v1674029859/PC_Creative%20refresh/3D_bau/banners_new/Shawarma.png"
+                            width="144" height="180" alt="restaurant curated for shawarma"></div>
+                    <div height="180" width="144" class="col"><img class="sc-dcJsrY kMlaev"
+                            src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/v1674029855/PC_Creative%20refresh/3D_bau/banners_new/Noodles.png"
+                            width="144" height="180" alt="restaurant curated for noodles"></div>
+                
+                    <div height="180" width="144" class="col"><img class="sc-dcJsrY kMlaev"
+                            src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/v1674029851/PC_Creative%20refresh/3D_bau/banners_new/Khichdi.png"
+                            width="144" height="180" alt="restaurants curated for khicdhi"></div>
+                    <div height="180" width="144" class="col"><img class="sc-dcJsrY kMlaev"
+                            src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/v1674029853/PC_Creative%20refresh/3D_bau/banners_new/Kebabs.png"
+                            width="144" height="180" alt="restaurant curated for kebabs"></div>
+                    <div height="180" width="144" class="col"><img class="sc-dcJsrY kMlaev"
+                            src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/v1674029852/PC_Creative%20refresh/3D_bau/banners_new/Momos.png"
+                            width="144" height="180" alt="restaurant curated for momos"></div>
+                
+                    <div height="180" width="144" class="col"><img class="sc-dcJsrY kMlaev"
+                            src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/v1674029847/PC_Creative%20refresh/3D_bau/banners_new/Pastry.png"
+                            width="144" height="180" alt="restaurant curated for Pastry"></div>
+                
+                    <div height="180" width="144" class="col"><img class="sc-dcJsrY kMlaev"
+                            src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/v1675667630/PC_Creative%20refresh/Desserts_2.png"
+                            width="144" height="180" alt="restaurant curated for dessert"></div>
+                    <div height="180" width="144" class="col"><img class="sc-dcJsrY kMlaev"
+                            src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/v1674029858/PC_Creative%20refresh/3D_bau/banners_new/Rolls.png"
+                            width="144" height="180" alt="restaurants curated for roll"></div>-->
+    </div>
+</div>
+{% endblock body %}
