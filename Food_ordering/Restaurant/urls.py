@@ -19,7 +19,7 @@ from django.urls import path,include
 from Restaurant import views
 #Restaurant urls
 urlpatterns = [
-    path('Register_Restaurant/',views.Register_Restaurant,name='Register_Restaurant'),
+    path('Register_Restaurant/',views.Register_Restaurant.as_view(),name='Register_Restaurant'),
 
     path('admin/', admin.site.urls),
 ]

@@ -1,6 +1,47 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block body %}
+<body>
+    
+    
+<h1 align="center">Partner with FoodOrder</h1>
 
-<h1>Register Restaurant</h1>
+<div class="container card p-4 col-4 mt-5 shadow-lg">
+    
+    <form action="" method="POST">
+        {% csrf_token %}
+        <h2>Restaurant Details</h2>
+
+        <div class="input_box">
+            <input type="text" placeholder="Enter Restaurant Name" required name="Restaurant_name" />
+            <i class="uil uil-envelope-alt email"></i>
+        </div>
+
+        <div class="input_box">
+            <input type="text" placeholder="Enter Owner Full Name" required name="Owner_name" />
+            <i class="uil uil-envelope-alt email"></i>
+        </div>
+
+        <div class="input_box">
+            <input type="email" placeholder="Enter your Email" required  name="email" />
+            <i class="uil uil-envelope-alt email"></i>
+        </div>
+        <div class="input_box">
+            <input type="text" placeholder="Enter your Contact Number" required name="Contact" />
+            <i class="uil uil-envelope-alt email"></i>
+        </div>
+        <div class="input_box">
+            <input type="text" placeholder="Enter Your Location" required name="Rest_loc">
+            <i class="uil uil-envelope-alt email"></i>
+        </div>
+
+        <div class="input_box">
+            <button class="btn btn-success">Apply</button>
+        </div>
+
+        
+
+</div>
+</body>
+
 {% endblock body %}
