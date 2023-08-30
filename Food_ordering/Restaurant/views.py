@@ -4,8 +4,7 @@ from Restaurant.models import *
 # Create your views here.
 from django.conf import settings
 from django.core.mail import send_mail
-obj = Rest_details.objects.all()
-print(obj)
+
 
 
 def send_email_to_client(email,name,Rest_name):
