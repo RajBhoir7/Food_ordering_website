@@ -3,5 +3,5 @@ from Restaurant import models
 # Register your models here.
 
 admin.site.register(models.Rest_details)
-
+admin.site.register(models.Login_details)
 

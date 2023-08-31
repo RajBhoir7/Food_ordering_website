@@ -9,12 +9,17 @@
         <div class="container-fluid">
           <a class="navbar-brand" href="#"><img src="{% static 'img/Logo1.jpg' %}" alt="" style="height: 35px"></a>
 
-          <div id="mySidenav" class="sidenav" style="background-color: white;">
+            <div id="mySidenav" class="sidenav" style="background-color: white;">
             <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
             <div style="margin-left: 33px;"><h3>Welocme</h3></div>
             <a href="#"><h6>About</h6></a>
-            <a href="#"><h6>Services</h6></a>
-            <a href="#"><h6>Login Restaurant</h6></a>
+            <a href="http://127.0.0.1:8000/admin/"><h6>Admin Login</h6></a>
+
+
+
+            <a href="{%  url 'Rest_login' %}"><h6>Login Restaurant</h6></a>
+
+
             <a href="{%  url 'Register_Restaurant' %}"><h6>Add Your Restaurant</h6>
             </a>
             <a href="#"><h6>Contact</h6></a>

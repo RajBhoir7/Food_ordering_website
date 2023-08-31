@@ -20,6 +20,7 @@ from Restaurant import views
 #Restaurant urls
 urlpatterns = [
     path('Register_Restaurant/',views.Register_Restaurant.as_view(),name='Register_Restaurant'),
+    path('Rest_login/',views.Rest_login.as_view(),name='Rest_login'),
 
     path('admin/', admin.site.urls),
 ]

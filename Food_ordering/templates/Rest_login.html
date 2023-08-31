@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Login Rest{% endblock title %}
+
+{% block body %}
+<div class="container card col-4 p-5 shadow-lg mt-5 mb-5">
+  <h2>Login Restaurant</h2>
+    <div class="form login_form">
+      <form action="" method="POST">
+        {% csrf_token %}
+        
+        {% if messages %}
+        {{message.tags}}
+        <div class="alert alert-primary" role="alert">
+        {% for message in messages %}
+        {{ message }}
+        {% endfor %}
+        </div>
+        {% endif %}
+
+        <div class="input_box">
+          <input type="email" placeholder="Enter your email" required name="rusername"/>
+          <i class="uil uil-envelope-alt email"></i>
+        </div>
+        <div class="input_box">
+          <input type="password" placeholder="Enter your password" required name="rpassword"/>
+          <i class="uil uil-lock password"></i>
+          <i class="uil uil-eye-slash pw_hide"></i>
+        </div>
+
+        <div class="option_field">
+          <span class="checkbox">
+            <input type="checkbox" id="check" />
+            <label for="check">Remember me</label>
+          </span>
+          <a href="#" class="forgot_pw">Forgot password?</a>
+        </div>
+        <div class="container mt-3">
+        <button class="btn btn-primary">Login Now</button>
+      </div>
+        <div class="login_signup">Don't have an account? <a href="{% url 'Register_Restaurant' %}" id="signup">partner with us</a></div>
+      </form>
+    </div>
+</div>
+{% endblock body %}
