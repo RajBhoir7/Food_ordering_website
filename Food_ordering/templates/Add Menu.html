@@ -2,37 +2,66 @@
 
 {% block body %}
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div><h1 align="center" class="mt-3">Welcome TO Restaurant</h1></div>
 <div class="container mt-5">
     <form class="col-6 mx-auto card p-3 shadow-lg"  method="POST" enctype="multipart/form-data" >
         {% csrf_token %}
         <h4 align="center">Add Food</h4><br>
         <div class="mb-3">
           <label for="exampleInputEmail1" class="form-label">Food Name</label>
-          <input required type="text" class="form-control" name="receipe_name" aria-describedby="emailHelp">
+          <input required type="text" class="form-control" name="Food_Name" aria-describedby="emailHelp">
+        </div>
+        
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Food Price</label>
+          <input required type="text" class="form-control" name="Food_Price" aria-describedby="emailHelp">
         </div>  
+        
         <div class="mb-3">
           <label for="exampleInputPassword1" class="form-label" >Food DESC</label>
-          <textarea required name="receipe_desc" cols="20" rows="2"></textarea>
+          <textarea required name="Food_Desc" cols="75" rows="2"></textarea>
         </div>
 
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Food IMG</label>
-            <input type="file" class="form-control" name="receipe_img" aria-describedby="emailHelp">
+            <input type="file" class="form-control" name="Food_Img" aria-describedby="emailHelp">
           </div>
         
         <button type="submit" class="btn btn-success">Submit</button>
       </form>
 </div>
+
+
+<div class="container">
 {% if Foods %}
-<div class="container card shadow-lg mt-5" >
-  <h4>Your Restaurant Food</h4><br>
+
+<div class="container " >
+  <h4>Your Restaurant Foods</h4><br>
   <table class="table">
     <thead>
       <tr>
-        <th scope="col">Counter</th>
+        <th scope="col" class="">ID</th>
         <th scope="col">Food Name</th>
-        <th scope="col">Food Desc</th>
-        <th scope="col">Food IMG</th>
+        <th scope="col">Price</th>
+        <th scope="col">Food description</th>
+        <th scope="col">Food Image</th>
         <th scope="col">Actions</th>
       </tr>
     </thead>
@@ -41,8 +70,9 @@
       <tr>
         <th scope="row">{{forloop.counter}}</th>
         <td>{{i.Menu_name}}</td>
+        <td>{{i.Menu_Price}}</td>
         <td>{{i.Menu_desc}}</td>
-        <td><img src="media/{{i.Menu_img url}}" alt="not show" style="max-height: 200px; max-width: 180px;"></td>
+        <td><img src="/media/{{i.Menu_img}}" alt="" style="max-height: 200px; max-width: 180px;"></td>
       
         <td>
           <form action="#" method="POST">
@@ -65,11 +95,17 @@
 </div>
 {% else %}
   <div class="container mt-5">
-    <h3 align="center">Your Restaurant Food Not Avalible</h3>
+    <h3>NO Recepies</h3>
   </div>
 {% endif %}
 
 
 
+
+
+</div>
+
+
+<div class="sc-cWSHoV iWDgAm"><div><a class="sc-jBeBSR gqvtge"><div class="sc-fBdRDi eqHUXD"><div class="sc-kpDqfm cZZEwO"><div class="sc-dAlyuH hYBKCL"><div width="100%" height="100%" class="sc-jXbUNg etHTCJ"><img class="sc-dcJsrY kMtDjj" src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/dp3bbhabqbzpi9lk05la" alt="Domino's Pizza"><div class="sc-kAyceB bmsmxn sc-dhKdcB klsJIE"><div class="sc-aXZVg bston sc-imWYAI jQllR"></div><div class="sc-aXZVg bBhNat sc-imWYAI jQllR">₹100 OFF ABOVE ₹999 </div><div class="sc-aXZVg fqXrDf sc-imWYAI jQllR"></div></div></div></div></div><div style="margin-left: 12px;"><div><div class="sc-aXZVg kIsYLE">Domino's Pizza</div></div><div class="sw-restaurant-card-subtext-container"><div style="margin-top: -2px;"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" role="img" aria-hidden="true" strokeColor="rgba(2, 6, 12, 0.92)" fillColor="rgba(2, 6, 12, 0.92)"><circle cx="10" cy="10" r="9" fill="url(#StoreRating20_svg__paint0_linear_32982_71567)"></circle><path d="M10.0816 12.865C10.0312 12.8353 9.96876 12.8353 9.91839 12.865L7.31647 14.3968C6.93482 14.6214 6.47106 14.2757 6.57745 13.8458L7.27568 11.0245C7.29055 10.9644 7.26965 10.9012 7.22195 10.8618L4.95521 8.99028C4.60833 8.70388 4.78653 8.14085 5.23502 8.10619L8.23448 7.87442C8.29403 7.86982 8.34612 7.83261 8.36979 7.77777L9.54092 5.06385C9.71462 4.66132 10.2854 4.66132 10.4591 5.06385L11.6302 7.77777C11.6539 7.83261 11.706 7.86982 11.7655 7.87442L14.765 8.10619C15.2135 8.14085 15.3917 8.70388 15.0448 8.99028L12.7781 10.8618C12.7303 10.9012 12.7095 10.9644 12.7243 11.0245L13.4225 13.8458C13.5289 14.2757 13.0652 14.6214 12.6835 14.3968L10.0816 12.865Z" fill="white"></path><defs><linearGradient id="StoreRating20_svg__paint0_linear_32982_71567" x1="10" y1="1" x2="10" y2="19" gradientUnits="userSpaceOnUse"><stop stop-color="#21973B"></stop><stop offset="1" stop-color="#128540"></stop></linearGradient></defs></svg></div><div class="sc-aXZVg icltun" style="margin-top: -4px;"><span class="sc-aXZVg iXKEPu">4.3</span></div></div><div class="sw-restaurant-card-descriptions-container"><div class="sc-aXZVg ftrPfO">Pizzas, Italian, Pastas, Desserts</div><div class="sc-aXZVg ftrPfO">Sitabuldi</div></div></div></div></a><div></div></div></div>
 
 {% endblock body %}

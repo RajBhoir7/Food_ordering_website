@@ -9,7 +9,7 @@ from django.contrib import messages
 from django.contrib.auth import login,authenticate,logout
 from django.contrib.auth.models import User
 from .models import *
-        
+from django.contrib.auth.decorators import login_required
     
 
 
@@ -108,9 +108,9 @@ class Rest_login(View):
         
         username = request.POST.get('rusername')
         password = request.POST.get('rpassword')
-        print(username,password)
+        
         user = authenticate(request,username=username,password=password)
-        print(user)
+        
         if not User.objects.filter(username=user).exists():
             messages.info(request,f'UserName Not Exits')
             return redirect('User_Login')
@@ -121,11 +121,12 @@ class Rest_login(View):
             
         else:
             login(request,user)
-            #data = Rest_details.objects.filter(Email=username)
+            
+            #data = Rest_details.objects.filter(Email='bhoirraj872@gmail.com')
             #return render(request,'Restaurant_main.html',{'data':data})
-            return redirect('Restaurant_main')
-    
             #return redirect('Restaurant_main')
+    
+            return redirect('Restaurant_main')
 
         
         
@@ -139,13 +140,34 @@ class Rest_home(View):
         foods = Menu.objects.all()
         
 
-        return render(request,'Restaurant_main.html',{"Foods":foods})
+        return render(request,'Restaurant_main.html',{"Foods":foods}    )
+        
+    
+    def post(self,request):
+        #current_user = request.user
+        data = Rest_details.objects.filter(Email = 'bhoirraj872@gmail.com')
+        Rest_name1 = data[0].Rest_name
+        print(Rest_name1)
+        Menu_name = request.POST.get("Food_Name")
+        Menu_desc = request.POST.get("Food_Desc")
+        Menu_Price = request.POST.get("Food_Price")
+        Menu_img = request.FILES.get("Food_Img")
+        obj = Menu.objects.all()
+        obj = Menu.objects.create(
+           
+            Menu_name=Menu_name,
+            Menu_desc=Menu_desc,
+            Menu_Price=Menu_Price,
+            Menu_img=Menu_img
+        )
+        obj.save()
+        return redirect('Restaurant_main')
+
         
 
-    def post(self,request):
         
         return render(request,'Restaurant_main.html')
     
-
+@login_required(login_url=Rest_login)
 def Add_Food(request):
     return render(request,'Add Menu.html')
