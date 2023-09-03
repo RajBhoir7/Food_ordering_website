@@ -21,6 +21,9 @@ from Restaurant import views
 urlpatterns = [
     path('Register_Restaurant/',views.Register_Restaurant.as_view(),name='Register_Restaurant'),
     path('Rest_login/',views.Rest_login.as_view(),name='Rest_login'),
+    path('Restaurant_main/',views.Rest_home.as_view(),name='Restaurant_main'),
+    path('add_Food',views.Add_Food,name='add_Food'),
+    
 
     path('admin/', admin.site.urls),
 ]

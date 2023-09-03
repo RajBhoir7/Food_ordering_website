@@ -7,7 +7,8 @@ from django.core.mail import send_mail
 import random
 from django.contrib import messages
 from django.contrib.auth import login,authenticate,logout
-
+from django.contrib.auth.models import User
+from .models import *
         
     
 
@@ -104,29 +105,47 @@ class Rest_login(View):
         return render(request,'Rest_login.html')
 
     def post(self,request):
+        
         username = request.POST.get('rusername')
         password = request.POST.get('rpassword')
-
-
-        x = Login_details.objects.filter(username=username)
-        p = Login_details.objects.filter(password=password)
-
-
-        user = authenticate(username=x,password=p)
-        print(user,username,password)
-
-        if not Login_details.objects.filter(username=username).exists():
+        print(username,password)
+        user = authenticate(request,username=username,password=password)
+        print(user)
+        if not User.objects.filter(username=user).exists():
             messages.info(request,f'UserName Not Exits')
-            return redirect('Rest_login')
+            return redirect('User_Login')
 
         elif user is None:
             messages.info(request,f'Invalid Password Or UserName')
-            return redirect('Rest_login')
+            return redirect('User_Login')
             
         else:
             login(request,user)
-            return redirect('home')
+            #data = Rest_details.objects.filter(Email=username)
+            #return render(request,'Restaurant_main.html',{'data':data})
+            return redirect('Restaurant_main')
+    
+            #return redirect('Restaurant_main')
 
         
         
         return render(request,'Rest_login.html')
+    
+
+class Rest_home(View):
+
+
+    def get(self,request):
+        foods = Menu.objects.all()
+        
+
+        return render(request,'Restaurant_main.html',{"Foods":foods})
+        
+
+    def post(self,request):
+        
+        return render(request,'Restaurant_main.html')
+    
+
+def Add_Food(request):
+    return render(request,'Add Menu.html')

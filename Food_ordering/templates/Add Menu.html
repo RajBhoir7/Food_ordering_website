@@ -1,0 +1,75 @@
+
+
+{% block body %}
+
+<div class="container mt-5">
+    <form class="col-6 mx-auto card p-3 shadow-lg"  method="POST" enctype="multipart/form-data" >
+        {% csrf_token %}
+        <h4 align="center">Add Food</h4><br>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Food Name</label>
+          <input required type="text" class="form-control" name="receipe_name" aria-describedby="emailHelp">
+        </div>  
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label" >Food DESC</label>
+          <textarea required name="receipe_desc" cols="20" rows="2"></textarea>
+        </div>
+
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Food IMG</label>
+            <input type="file" class="form-control" name="receipe_img" aria-describedby="emailHelp">
+          </div>
+        
+        <button type="submit" class="btn btn-success">Submit</button>
+      </form>
+</div>
+{% if Foods %}
+<div class="container card shadow-lg mt-5" >
+  <h4>Your Restaurant Food</h4><br>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Counter</th>
+        <th scope="col">Food Name</th>
+        <th scope="col">Food Desc</th>
+        <th scope="col">Food IMG</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for i in Foods %}
+      <tr>
+        <th scope="row">{{forloop.counter}}</th>
+        <td>{{i.Menu_name}}</td>
+        <td>{{i.Menu_desc}}</td>
+        <td><img src="media/{{i.Menu_img url}}" alt="not show" style="max-height: 200px; max-width: 180px;"></td>
+      
+        <td>
+          <form action="#" method="POST">
+            {% csrf_token %}
+        <input type="submit" value="delete" class="btn btn-danger">
+        </form>
+
+
+        <form action="#" method="POST" class="mt-3">
+          {% csrf_token %}
+        <input type="submit" value="Update" class="btn btn-primary">
+        </form>
+        </td>
+        
+      </tr>
+
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% else %}
+  <div class="container mt-5">
+    <h3 align="center">Your Restaurant Food Not Avalible</h3>
+  </div>
+{% endif %}
+
+
+
+
+{% endblock body %}
