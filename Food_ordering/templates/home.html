@@ -36,6 +36,8 @@
         <div height="180" width="144" class="col"><img class="sc-dcJsrY kMlaev"
                 src="{% static 'img\Burger.png' %}"
                 width="144" height="180" alt="restaurants curated for icecream"></div>
+        </div>
+</div>
         <!--
                     <div height="180" width="144" class="col"><img class="sc-dcJsrY kMlaev"
                             src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_288,h_360/v1674029858/PC_Creative%20refresh/3D_bau/banners_new/Pure_Veg.png"
@@ -72,4 +74,105 @@
                             width="144" height="180" alt="restaurants curated for roll"></div>-->
     </div>
 </div>
+
+<!--
+<div class="container mt-5">
+        <div class="mt-3" style="margin-left: 20px;">
+                <h3 style="font-family: 'Times New Roman', Times, serif;"><b>Hotels In Your Area</b></h3>
+            </div>
+            <div class="card-group">
+{% if data %}
+{% for i in data %}
+
+<div class="row">
+<div class="col-3">
+  <div class="card">
+    <img src="{% static 'img\R_background.jpg' %}" class="card-img-top" alt="...">
+
+    <div class="card-body">
+      <h5 class="card-title">{{i.Rest_name}}</h5>
+      <p class="card-text">{{i.Rest_location}}</p>
+
+      <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="container">
+        <div class="mt-3" style="margin-left: 20px;">
+            <h3 style="font-family: 'Times New Roman', Times, serif;"><b>What's on your mind?</b></h3>
+        </div>
+    
+        <div class="row">
+                <div class="col-4">
+    
+                <div class="card">
+                        <img src="{% static 'img\R_background.jpg' %}" class="card-img-top" alt="...">
+                    
+                        <div class="card-body">
+                          <h5 class="card-title">{{i.Rest_name}}</h5>
+                          <p class="card-text">{{i.Rest_location}}</p>
+                    
+                          <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                      </div>
+                </div>
+                    
+</div>    
+</div>
+</div>
+
+{% endfor %}
+{% else %}
+<h4>Images Not Avaliable</h4>
+{% endif %}
+
+        
+        
+        
+</div>
+
+-->
+
+<div class="container   ">
+        <div class="mt-3" style="margin-left: 20px;">
+                <h3 style="font-family: 'Times New Roman', Times, serif;"><b>Best Restaurant In Your Area</b></h3>
+            </div>
+            <hr>
+        
+        <div class="card-group mt-4">
+                {% if data %}
+                {% for i in data %}
+                <div class="col-3">
+   <div class="card p-4 shadow-lg" style="margin: 10px;">
+                  <img src="{% static 'img\R_background.jpg' %}" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">{{i.Rest_name}}</h5>
+                    <p class="card-text">{{i.Rest_location}}</p>
+                    
+                          <a href="#" class="btn btn-primary">View Hotel</a>
+                    
+                  </div>
+                </div>
+        </div>
+<hr>
+                {% endfor %}
+{% else %}
+<h4>Images Not Avaliable</h4>
+{% endif %}
+
+
+                
+              </div>
+        
+
+</div>
+
+
+
+
+
+
+
 {% endblock body %}

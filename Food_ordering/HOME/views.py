@@ -1,5 +1,6 @@
 from django.shortcuts import render
-import requests
+from Restaurant.models import Rest_details
+#import requests
 # Create your views here.
 import json
 def home(request):  
@@ -10,7 +11,9 @@ def home(request):
     #location_data = json.loads(location_data_one)
 
                                         #,{'data':location_data}
-    return render(request,'home.html')
+
+    hotels_in_user_location = Rest_details.objects.all()
+    return render(request,'home.html',{'data':hotels_in_user_location})
 
 #http://ip-api.com/json/24.48.0.1?fields=message,country,countryCode,region,regionName,city,district,zip,lat,lon,#timezone,isp,org,as,query
 

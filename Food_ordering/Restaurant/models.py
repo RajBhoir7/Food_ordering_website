@@ -20,8 +20,12 @@ class Login_details(models.Model):
     username = models.CharField(max_length=100)
     password = models.CharField(max_length=100)
 
+    def __str__(self) ->str:
+        return self.username
+    
+
 class Menu(models.Model):
-    Rest_name = models.ForeignKey(Rest_details,on_delete=models.SET_NULL,null = True)
+    Rest_name = models.ForeignKey(Rest_details,on_delete=models.SET_NULL,null=True)
     Menu_name = models.CharField(max_length=25)
     Menu_desc = models.CharField(max_length=50)
     Menu_Price = models.IntegerField()
