@@ -171,3 +171,12 @@ class Rest_home(View):
 @login_required(login_url=Rest_login)
 def Add_Food(request):
     return render(request,'Add Menu.html')
+
+
+class RestaurantFood(View):
+    def get(self,request):
+        #    return render(request,'Show_restaurant_food.html')
+    
+
+        Avalaible_food_in_restaurant = Menu.objects.all()
+        return render(request,'Show_restaurant_food.html',{'data':Avalaible_food_in_restaurant})
